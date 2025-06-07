@@ -1,0 +1,439 @@
+/*fundo*/
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:150vh;
+    background-color: rgba(64, 110, 225, 0.872);
+    animation: mudarCor 3s ease infinite;
+}
+
+@keyframes mudarCor {
+    0% {
+        background-color: rgba(255, 168, 168, 0.664);
+    }
+    50% {
+        background-color: rgba(255, 255, 168, 0.623);
+    }
+    100% {
+        background-color: rgba(154, 154, 255, 0.637);
+    }
+}
+
+/*Botão de tocar música*/
+.soundButton {
+    position: absolute;
+    width: 180px;
+    height:55px;
+    left:860px;
+    top:250px;
+    font-size: medium;
+
+}
+/*************************************************************************************************/
+/*Capa do cartão*/
+.birthdayCard {
+    position: relative;
+    width: 550px;
+    height:750px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 4s;
+    z-index: 10; /* Garante que o cartão fique na frente dos balões */
+
+}
+
+.birthdayCard:hover {
+    transform: perspective(2500px) rotate(2deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 0 10px 100px rgba(0,0,0,0.3);
+}
+
+.birthdayCard:hover .cardFront {
+    transform: rotateY(-170deg); 
+}
+
+
+/*************************************************************************************************/
+/*Verso da capa do cartão*/
+
+/*video*/
+.video{
+    width:450px; 
+    height:350px; 
+    position:relative; 
+    left: 50px;
+    top: 180px;
+    transform: scaleX(-1); /* Espelha no eixo X */
+    display: inline-block; /* Para que o texto responda ao transform */
+    display: none;
+}
+
+/*Mostrar imagem no verso*/
+.birthdayCard:hover .cardFront .video{
+        display:block;
+    }
+
+/*Texto verso*/
+.back-txt{
+    position:absolute; 
+    top: 520px;
+    left: 145px;
+    font-size:35px;
+    transform: scaleX(-1); /* Espelha no eixo X */
+    display: inline-block; /* Para que o texto responda ao transform */
+    display:none;
+    backface-visibility: hidden;
+}
+
+/*Mostrar texto no verso*/
+.birthdayCard:hover .cardFront .back-txt{
+    display:block;
+    }
+
+/*Ocultar na parte de dentro*/
+.birthdayCard:hover .front-text {
+    display: none;
+}
+
+/*Ocultar na parte de dentro*/
+.birthdayCard:hover .plate {
+    display: none;
+}
+
+/*************************************************************************************************/
+/*Capa do cartão*/
+.cardFront {
+    position: relative;
+    background-color: rgb(255, 246, 246);
+    width: 550px;
+    height:750px;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+    transition: .4s;
+}
+
+
+.happybday, .toyou {
+    position: relative;
+    text-align: center;
+    backface-visibility: hidden;
+    font-size: 60px; 
+    font-family: 'Barriecito'
+}
+
+.happybday {
+    top:198px;
+}
+
+.toyou {
+    top: 175px;
+    font-size: 55px; 
+}
+
+/*************************************************************************************************/
+/*Fita esquerda*/
+.wrap-deco {
+    position: absolute;
+    top:-210px;
+    left:-60px;
+}
+
+ /*Fita direita*/
+ .wrap-decoTwo {
+    transform: scaleX(-1);
+    position: absolute;
+    top:-210px;
+    left:600px; 
+}
+
+.decorations {
+    position: absolute;
+    left: -50px;
+    width: 400px;
+    height: 300px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+}
+
+/*bandeirinhas*/
+.decorations:before, .decorations:after, .decorationsTwo:before, .decorationsTwo:after, .decorationsThree:before, .decorationsThree:after {
+    content:"";
+    position: absolute;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    width:50;
+    height:0;
+}
+
+.decorations:before {
+    border-top: 40px solid #f15bb5;
+    top:297px;
+    left:130px;
+    transform: rotate(9deg);
+}
+
+.decorations:after{
+    border-top: 40px solid #f4d35e;
+    top:301px;
+    left:200px;
+    transform: rotate(-4deg);
+}
+
+.decorationsTwo:before {
+    border-top: 40px solid #00f5d4;
+    top:293px;
+    left:210px;
+    transform: rotate(-14deg);
+}
+
+.decorationsThree:before {
+    border-top: 40px solid #00bbf9;
+    top:293px;
+    left:210px;
+    transform: rotate(-16deg);
+}
+
+.decorationsTwo:after, .decorationsThree:after {
+    border-top: 40px solid #9b5de5;
+    top:266px;
+    left:270px;
+    transform: rotate(-32deg);
+}
+/*************************************************************************************************/
+
+/*Prato e bolo*/
+.plate {
+    position: absolute;
+    width: 250px;
+    height: 12px;
+    background-color: #00bbf9;
+    left:150px;
+    top:600px;
+}
+
+/*Bolo e calda*/
+.cake {
+    position: absolute;
+    overflow: hidden;
+    width:220px;
+    height: 100px;
+    background-color: #f3a25b;
+    border-radius: 10px 10px 0 0;
+    top:-100px;
+    left:15px;
+    box-shadow: inset 0 -15px #f3a25b, inset 0 45px #432818;
+}
+
+/*Caldas escorrendo*/
+.cake:before {
+    content:"";
+    position: absolute;
+    background-color: #432818;
+    width:20px;
+    height:28px;
+    top:5px;
+    border-radius:60px;
+    box-shadow: 0px 30px #432818, 25px 25px #432818, 50px 30px #432818, 
+                75px 25px #432818, 100px 30px #432818, 125px 25px #432818, 
+                150px 30px #432818, 175px 25px #432818, 200px 30px #432818;
+}
+
+/*Vela*/
+.plate:before {
+    content:"";
+    position: absolute;
+    background: repeating-linear-gradient(-45deg, #9b5de5, #9b5de5 3px, #00f5d4 3px, #00f5d4 6px);
+    width:10px;
+    height: 25px;
+    top: -125px;
+    left:120px;
+}
+
+/*Pavio da vela*/
+.plate:after {
+    content:"";
+    position: absolute;
+    width:0.5px;
+    height:7px;
+    background-color: #333;
+    top:-132px;
+    left:124px;
+}
+
+/*Chama da vela*/
+.flame {
+    position: absolute;
+    background-color: #fb5607;
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+    transform: rotate(-45deg);
+    width:20px;
+    height:20px;
+    opacity:0.7;
+    top:-144px;
+    left:114px;
+    animation: flameAnimation 5s ease-in-out infinite;
+}
+
+/* Animação da chama*/
+@keyframes flameAnimation {
+    0% {
+        transform: rotate(-45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(-45deg) translateX(1px);
+    }
+    75% {
+        transform: rotate(-45deg) translateX(-1px);
+        }
+
+    100% {
+        transform: rotate(-45deg) translateY(0);
+    }
+}
+
+/**********************************************************************************/
+/*Parte de dentro do cartão (Parte escrita)*/
+.cardInside {
+    position: absolute;
+    background-color: #fff;
+    width: 550px;
+    height:750px;
+    z-index:-1;
+    left:0;
+    top:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2);
+}
+
+.wishes {
+    position: relative;
+    top:-10px;
+    margin: 65px;
+    font-size: 30px;
+}
+
+p {
+    font-family:'Tangerine';
+    font-weight: bold;
+    color: #000000;
+}
+
+.despedida {
+    margin-left:0px;
+    position: relative;
+    top: -8px;
+}
+
+.assinatura {
+    margin-left:0px;
+    position: relative;
+    top: 0px;
+
+}
+
+/*************************************************************************************************/
+/* Container dos balões */
+.balloon-container {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Balões não vão interferir nos cliques */
+    z-index: 1;
+}
+
+/* Estilo básico dos balões */
+.balloon {
+    width: 110px;
+    height: 135px;
+    background-color: #FF6347; /* Cor do balão */
+    border-radius: 70%;
+    position: absolute;
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Animação de flutuação dos balões */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Posicionamento dos balões em torno do cartão */
+#balloon1 {
+    bottom: 450px;
+    left: 300px;
+    background-color: #FF6347;
+}
+
+#balloon2 {
+    bottom:250px;
+    left: 540px;
+    background-color: #7700ff;
+}
+
+#balloon3 {
+    bottom: -40px;
+    left: 400px;
+    background-color: #32CD32;
+}
+
+#balloon4 {
+    bottom: 450px;
+    left: 1550px;
+    background-color: #0051ff;
+}
+
+#balloon5 {
+    bottom: 250px;
+    left: 1350px;
+    background-color: #FFD700;
+}
+
+#balloon6 {
+    bottom:-40px;
+    left: 1500px;
+    background-color: #FF1493;
+}
+
+/* Corda dos balões */
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 2.5px; /* Espessura da corda */
+    height: 150px; /* Comprimento da corda */
+    background-color:#333; /* Cor da corda */
+    top: 100%; /* Posiciona abaixo do balão */
+    left: 50%; /* Centraliza na largura do balão */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    animation: snake 2s ease-in-out infinite; /* Animação de balançar */
+
+}
+
+/* Animação para fazer a corda balançar */
+@keyframes snake {
+    0% {
+        transform: translateX(-50%) translateY(0) rotate(0deg); /* Começa reto */
+    }
+    25% {
+        transform: translateX(-10%) translateY(-1px) rotate(1deg); /* Mover para cima e girar */
+    }
+    50% {
+        transform: translateX(-10%) translateY(0) rotate(0deg); /* Volta ao meio */
+    }
+    75% {
+        transform: translateX(-10%) translateY(1px) rotate(-1deg); /* Mover para baixo e girar */
+    }
+    100% {
+        transform: translateX(-10%) translateY(0) rotate(0deg); /* Retorna ao centro */
+    }
+}
